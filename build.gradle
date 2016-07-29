@@ -34,8 +34,12 @@ dependencies {
 
 	compile("org.springframework.boot:spring-boot-starter-data-rest")
 	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-
+	testCompile('org.springframework:spring-test:3.2.8.RELEASE')
 	compile("org.springframework.boot:spring-boot-starter-security")
+	testCompile("org.springframework.restdocs:spring-restdocs-mockmvc:1.1.0.RELEASE")
+	testCompile('com.jayway.jsonpath:json-path:2.2.0')
+	testCompile ('junit:junit-dep:4.11')
+	testCompile ('org.hamcrest:hamcrest-all:1.3')
 
 }
 

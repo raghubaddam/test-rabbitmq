@@ -1,6 +1,7 @@
 package com.rabbitmq;
 
 import com.rabbitmq.client.ConnectionFactory;
+import jdk.nashorn.internal.objects.annotations.Setter;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
@@ -18,6 +19,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 
 import java.net.URISyntaxException;
 import java.security.KeyManagementException;
@@ -28,7 +30,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
-public class TestRabbitmqApplication implements CommandLineRunner {
+@PropertySource("classpath:application.properties")
+public class TestRabbitmqApplication {
 
 
 	final static String queueName = "spring-boot";
@@ -134,12 +137,12 @@ public class TestRabbitmqApplication implements CommandLineRunner {
 	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(TestRabbitmqApplication.class, args);
 	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		System.out.println("Sending message...");
-		rabbitTemplate().convertAndSend(SPRING_BOOT_EXCHANGE, routingKey, "Hello from RabbitMQ!");
-	}
+//
+//	@Override
+//	public void run(String... args) throws Exception {
+//		System.out.println("Sending message...");
+//		//rabbitTemplate().convertAndSend(SPRING_BOOT_EXCHANGE, routingKey, "Hello from RabbitMQ!");
+//	}
 
 
 }

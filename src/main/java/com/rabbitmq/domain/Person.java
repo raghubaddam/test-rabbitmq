@@ -6,6 +6,15 @@ public class Person {
 
     @Id private String id;
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
     private String firstName;
     private String lastName;
 

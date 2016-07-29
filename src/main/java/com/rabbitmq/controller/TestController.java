@@ -1,5 +1,6 @@
 package com.rabbitmq.controller;
 
+import com.rabbitmq.domain.Person;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -22,12 +23,12 @@ public class TestController {
     final String SPRING_BOOT_EXCHANGE = "spring-boot-exchange";
 
     @RequestMapping(value = "/message", method = RequestMethod.POST)
-    public ResponseEntity<String> postMessage(@RequestParam String message){
+    public ResponseEntity<Person> postMessage(@RequestParam Person person){
 
-        rabbitTemplate.convertAndSend(SPRING_BOOT_EXCHANGE, routingKey, message);
+        rabbitTemplate.convertAndSend(SPRING_BOOT_EXCHANGE, routingKey, person);
         System.out.print("Message sent !!!");
 
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return new ResponseEntity<Person>(HttpStatus.OK);
 
     }
 
