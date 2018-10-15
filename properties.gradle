@@ -2,10 +2,6 @@ project.ext {
     offline = 'false'
     javaVersion = JavaVersion.VERSION_1_8
 
-    cargoTomcatUrl = 'http://ks64.phx.gapinc.dev/gapSoftware/tomcat/source/apache-tomcat-6.0.35.tar.gz'
-
-    //Artifactory
-    artifactoryUrl = 'http://artifactory.gapinc.dev/artifactory/'
     filesystemRepo = 'file:///tmp/artifactory/dummy-repo'
 
     //Repositories
